@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refazendo Lista 2 e 3 para treinamento</title>
+    <script>
+	function exercicio1(){
+        let soma = 0;
+		for(let i = 0; i <= 100; i+=2) {
+			soma += i;
+		}
+		alert(soma);
+	}
+
+    function exercicio2() {
+        let num1 = 13;
+        let num2 = 73;
+        alert(((13+73)/2).toFixed(2));
+    }
+
+    function exercicio3(numTabuada) {
+        let text = "";
+        for (let i = 1; i <= 10; i++) {
+            text += numTabuada + " X " + i + " = " + (numTabuada*i) + "\n";
+        }
+        alert(text);
+    }
+
+    function exercicio4(num) {
+        let count = 0;
+        for (let i = num; i > 0; i--) {
+            if(num % i == 0) count++;
+        }
+        alert(count)
+    }
+    </script>
+</head>
+<body onload="">
+    <h3>Resultado do exercício 1</h3>
+    <p id="exercicio1"><button onclick="exercicio1()">Resultado</button></p>
+    <hr>
+    <h3>Exercício 2</h3>
+    <p><button onclick="exercicio2()">Resultado</button></p>
+    <hr>
+    <h3>Exercício 3</h3>
+    <p><button onclick="exercicio3(2)">Resultado</button></p>
+    <hr>
+    <h3>Exercício 4</h3>
+    <p><button onclick="exercicio4(20)">Resultado</button></p>
+    <hr>
+    <h3>WIP</h3>
+    <p>TERMINAR DEPOIS POR ORDEM DE IMPORTÂNCIA</p>
+</body>
+</html>
