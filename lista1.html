@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refazendo Lista 1 para treinamento</title>
+    <script>
+        function exercicio1(num1, num2) {
+            let res;
+            res = (num1 + num2) * num1;
+            document.getElementById("exercicio1").innerHTML = res;
+        }
+
+        function exercicio2(libras) {
+            newtons = libras * 4.9;
+            document.getElementById("exercicio2").innerHTML = newtons;
+        }
+
+        function exercicio3(feet) {
+            metros = (feet/3.28).toFixed(4);
+            document.getElementById("exercicio3").innerHTML = metros;
+        }
+
+        function exercicio4(milhas) {
+            kilometro = (milhas/1.61).toFixed(4);
+            document.getElementById("exercicio4").innerHTML = kilometro;
+        }
+
+        function botao() {
+            document.getElementById("exercicio5").innerHTML = "<button onclick='exercicio5(237.48)'> botão para alert </button>";
+        }
+        function exercicio5(numeroDecimal) {
+            let int, float;
+            int = Math.floor(numeroDecimal);
+            float = (numeroDecimal - int).toFixed(2);
+            alert("Parte inteira: " + int + "\nParte decimal: " + float);
+        }
+    </script>
+</head>
+<body onload="exercicio1(2,1); exercicio2(1); exercicio3(1); exercicio4(1); botao()">
+    <h3>Resultado exercício 1:</h3>
+    <p id="exercicio1"></p>
+    <hr>
+    <h3>Resultado exercício 2:</h3>
+    <p id="exercicio2"></p>
+    <hr>
+    <h3>Resultado exercício 3:</h3>
+    <p id="exercicio3"></p>
+    <hr>
+    <h3>Resultado exercício 4:</h3>
+    <p id="exercicio4"></p>
+    <hr>
+    <h3>Resultado exercício 5:</h3>
+    <p id="exercicio5"></p>
+    
+</body>
+</html>
