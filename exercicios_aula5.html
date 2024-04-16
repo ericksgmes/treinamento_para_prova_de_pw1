@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios aula 5</title>
+    <script>
+        function exercicio1() {
+            let numerosInteiros = [5,4,3,2,1];
+            let dobro_do_vetor = numerosInteiros.map(funcao_que_itera_array);
+            function funcao_que_itera_array(valor, indice, vetor) {
+                return valor * 2;
+            }
+            document.getElementById("exercicio1").innerHTML = dobro_do_vetor;
+        }
+ 
+        function exercicio2() {
+            let numerosInteiros=[0,10,15,20,25,30,35,50,55,70,75,90,95,100,110,120,130,140,150];
+            let numerosInteirosFiltrados = [];
+            numerosInteirosFiltrados = numerosInteiros.filter(funcaoQueFiltraArray);
+            function funcaoQueFiltraArray(valor, indice, vetor) {
+                return valor > 20 && valor < 100;
+            }
+            document.getElementById("exercicio2").innerHTML = numerosInteirosFiltrados;
+        }
+
+        function exercicio3() {
+            let str1=["beija-"];
+            let str2=["flor"];
+            alert(str1.concat(str2));
+        }
+
+        function exercicio4() {
+            let vetorNumerico = [4,2,7,1,90,10];
+            n = vetorNumerico.length;
+            do {
+                swapped = false;
+                for (let i = 0; i < n; i++) {
+                    if(vetorNumerico[i] > vetorNumerico[i+1]) {
+                        let aux = vetorNumerico[i];
+                        vetorNumerico[i] = vetorNumerico[i + 1];
+                        vetorNumerico[i + 1] = aux;
+                        swapped = true;
+                    }
+                }
+                n--;
+            } while (swapped);
+            document.getElementById("exercicio4").innerHTML = vetorNumerico;
+        }
+    </script>
+</head>
+<body onload="exercicio1(); exercicio2(); exercicio4()">
+    <h3>Resolução do exercício 1, utilizando map()</h3>
+    <p id="exercicio1"></p>
+    <h3>Resolução do exercício 2, utilizando filter()</h3>
+    <p id="exercicio2"></p>
+    <h3>Resolução do exercício 3, utilizando concat()</h3>
+    <button onclick="exercicio3()">Mostrar Resolução</button>
+    <h3>Resolução do exercício 4, ordenar vetor sem sort()</h3>
+    <p id="exercicio4"></p>
+</body>
+</html>
