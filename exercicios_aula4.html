@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios aula 4</title>
+    <script>
+        estudante = { nome : "David Rayy", sala : "VI", pront : 12};
+        estudante.mostraInfos = function() {
+                let str = "nome: " + estudante.nome + "<br>sala: " + estudante.sala + "<br>pront: " + estudante.pront
+                return str;
+            }
+        estudante.removeProperty = function(propertyName) {
+            return delete this[propertyName];
+        };
+        estudante.getLenght = function() {
+            return Object.keys(estudante).length+1;
+        }
+
+        function exercicio1() {
+            document.getElementById("exercicio1").innerHTML = estudante.mostraInfos();
+        }
+
+        function exercicio2() {
+            estudante.removeProperty("sala");
+            document.getElementById("exercicio2").innerHTML = estudante.mostraInfos();
+        }
+
+        function exercicio3() {
+            let objLenght = estudante.getLenght();
+            document.getElementById("exercicio3").innerHTML = objLenght;
+        }
+
+        function exercicio4() {
+            cilindro = new Object();
+            cilindro.raio = 7;
+            cilindro.altura = 10;
+            cilindro.volume = ((Math.PI)*(cilindro.raio*cilindro.raio)*cilindro.altura).toFixed(4);
+            document.getElementById("exercicio4").innerHTML = cilindro.volume;
+        }
+    </script>
+</head>
+<body onload="exercicio1(); exercicio2(); exercicio3(); exercicio4()">
+    <h3>Solução exercício 1</h3>
+    <p id="exercicio1"></p>
+    <h3>Solução exercício 2</h3>
+    <p id="exercicio2"></p>
+    <h3>Solução exercício 3</h3>
+    <p id="exercicio3"></p>
+    <h3>Solução exercício 4</h3>
+    <p id="exercicio4"></p>
+</body>
+</html>
