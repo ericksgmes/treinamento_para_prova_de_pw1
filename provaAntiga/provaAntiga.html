@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P1 PW1</title>
+    <script>
+        let vetorObjetos = [
+        {   issn: 1,
+            autor: 'Bill Gates',
+            titulo: 'The Road Ahead',
+            statusLeitura: true
+        },
+        {   issn: 2,
+            autor: 'Steve Jobs',
+            titulo: 'Walter Isaacson',
+            statusLeitura: false
+        },
+        {   issn: 3,
+            autor: 'Alex Fergusson',
+            titulo:  'Manchester United Legend',
+            statusLeitura: true
+        },
+        {   issn: 4,
+            autor: 'Suzanne Collins',
+            titulo:  'Mockingjay: The Final Book of The Hunger Games',
+            statusLeitura: false
+        } 
+        ];
+
+        function funcao01() {
+            let objetosComIssnMaiorQue3 = vetorObjetos.filter(funcaoQueFiltraISSN);
+            function funcaoQueFiltraISSN(valor, indice, vetor) {
+                return valor.issn >= 3;
+            }
+            document.getElementById("ISSN").innerHTML = JSON.stringify(objetosComIssnMaiorQue3);
+        }
+
+        function funcao02() {
+            form = document.forms["form1"];
+            ISSNnumber = parseInt(form.elements["issn"].value, 10);
+            autorForm = form.elements["autor"].value;
+            tituloForm = form.elements["titulo"].value;
+            status = form.elements["status"].value;
+            let objetosComIssnIgual = vetorObjetos.filter(funcaoQueFiltraObj);
+            function funcaoQueFiltraObj(valor, indice, vetor) {
+                return valor.issn == ISSNnumber;
+            }
+            objetosComIssnIgual[0].titulo = tituloForm;
+            objetosComIssnIgual[0].statusLeitura = status;
+            objetosComIssnIgual[0].autor = autorForm;
+            document.getElementById("teste").innerHTML = JSON.stringify(vetorObjetos);
+        }
+    </script>
+</head>
+<body onload="funcao01()">
+    <h3>funcao01</h3>
+    <p id="ISSN"></p>
+    <h3>Input</h3>
+    <form id="form1">
+        <label for="issn">ISSN: </label>
+        <input type="text" id="issn">
+        <br>
+        <label for="autor">Autor: </label>
+        <input type="text" id="autor">
+        <br>
+        <label for="titulo">Título: </label>
+        <input type="text" id="titulo">
+        <br>
+        <label for="status">Status: </label>
+        <input type="text" id="status">
+        <br>
+        <input type="button" value="Aplicar Mudanças" onclick="funcao02()">  
+    </form>
+    <p id="teste"></p>
+</body>
+</html>
