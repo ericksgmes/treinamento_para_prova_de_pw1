@@ -38,9 +38,22 @@
             cilindro.volume = ((Math.PI)*(cilindro.raio*cilindro.raio)*cilindro.altura).toFixed(4);
             document.getElementById("exercicio4").innerHTML = cilindro.volume;
         }
+
+        function exercicio5() {
+            let vetorObjetos = [
+            {autor: 'Bill Gates', titulo: 'The Road Ahead', statusLeitura: true}, 
+            {autor: 'Steve Jobs', titulo: 'Walter Isaacson', statusLeitura: true}, 
+            {autor: 'Suzanne Collins',titulo: 'Mockingjay: The Final Book of The Hunger Games', statusLeitura: false}
+            ];
+            let resultado = vetorObjetos.map(retornaInformacoes).join(" <br>")
+            function retornaInformacoes(valor, indice, vetor) {
+                return [valor.autor, valor.titulo, valor. statusLeitura]
+            }
+            document.getElementById("exercicio5").innerHTML = resultado;
+        }
     </script>
 </head>
-<body onload="exercicio1(); exercicio2(); exercicio3(); exercicio4()">
+<body onload="exercicio1(); exercicio2(); exercicio3(); exercicio4(); exercicio5()">
     <h3>Solução exercício 1</h3>
     <p id="exercicio1"></p>
     <h3>Solução exercício 2</h3>
@@ -49,5 +62,7 @@
     <p id="exercicio3"></p>
     <h3>Solução exercício 4</h3>
     <p id="exercicio4"></p>
+    <h3>Solução exercício 5</h3>
+    <p id="exercicio5"></p>
 </body>
 </html>
