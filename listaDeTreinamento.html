@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+    <style>
+        table, th, td {
+        border:1px solid black;
+        }
+    </style>
+    <script>
+    const Pessoa = [
+    {nome: "José", idade: 5},
+    {nome: "Maria", idade: 20},
+    {nome:"João", idade: 17},
+    {nome:"Daniela", idade: 25}, 
+    {nome:"Cibele", idade:8},
+    {nome:"Vinícius", idade: 18}
+    ];
+    function ordemCrescente(array) {
+        let i, swapped, aux;
+        do {
+            swapped = false;
+            for (i = 0; i < array.length - 1; i++) {
+                if (array[i] > array[i + 1]) {
+                    aux = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = aux;
+                    swapped = true;
+                }
+            }
+        } while (swapped);
+        document.getElementById("ex1").innerHTML = array;
+    }
+
+    function acharNumero(array, num) {
+        let indices = []
+        let j = 0
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] == num) {
+                indices[j] = i
+                j++
+            }
+        }
+        document.getElementById("ex2").innerHTML = indices;
+    }
+
+    function tabelaDinamica(num1, num2) {
+        if (num2 <= 0) {
+            document.getElementById("ex3").innerHTML = "Número inválido!!!"
+            return
+        }
+        let operacoesAritmeticas = ["Soma (+)", "Produto (*)", "Divisão (/)", "Resto Divisão (%)"]
+        let contas = [num1+num2, num1*num2, num1/num2, num1%num2]
+        let tabela = '<table style="width:100%">'
+        for (let i = 0; i < 4; i++) {
+            tabela += 
+            "<tr><td>" + operacoesAritmeticas[i] + " de " + num1 
+                + " e " + num2 + " é: " + contas[i] + "<td><tr>"
+        }
+        tabela += "<table"
+        document.getElementById("ex3").innerHTML = tabela
+    }
+
+    function mostraObjetos() {
+        let resultado = ""
+        for (let i = 0; i < Pessoa.length; i++) {
+            resultado += "Pessoa-" + i + 
+            "<ul> <li> Nome: " + Pessoa[i].nome +
+            " </li> <li>Idade: " + Pessoa[i].idade + "</li> </ul>"
+        }
+        document.getElementById("ex4").innerHTML = resultado
+    }
+
+    function achaIndices() {
+        let listaObjetos = Pessoa.map(achaObjetos)
+        function achaObjetos(valor, indice,  vetor) {
+            if(valor.idade > 18) return indice
+        }
+        alert(listaObjetos)
+    }
+
+    function achaIdades() {
+        let resultado = Pessoa.filter(filtraIdades)
+        function filtraIdades(valor, indice, vetor) {
+            return valor.idade > 15 && valor.idade <= 20 
+        }
+        document.getElementById("ex6").innerHTML = JSON.stringify(resultado)
+    }
+    </script>
+</head>
+<body>
+    <h3 id="ex1">Exercicio 1</h3>
+    <button onclick="ordemCrescente([6, 3])">Resolver</button>
+    <h3 id="ex2">Exercicio 2</h3>
+    <button onclick="acharNumero([2, 5, 4, 3, 3, 6, 3, 7], 3)">Resolver</button>
+    <h3 id="ex3">Exercicio 3</h3>
+    <button onclick="tabelaDinamica(5, 7)">Resolver</button> <br>
+    <div id="ex4">
+        <h3>Exercicio 4</h3>
+        <button onclick="mostraObjetos()">Resolver</button>
+    </div>
+    <h3 id="ex5">Exercicio 5</h3>
+    <button onclick="achaIndices()">Resolver</button>
+    <h3 id="ex6">Exercicio 6</h3>
+    <button onclick="achaIdades()">Resolver</button> 
+</body>
+</html>
